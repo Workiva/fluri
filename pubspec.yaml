@@ -1,0 +1,9 @@
+name: fluri
+version: 0.0.0
+description: 'Fluri is a fluent URI library built to make URI mutation easy'
+dev_dependencies:
+  dart_codecov_generator:
+    git:
+      url: git://github.com/ekweible/dart_codecov_generator.git
+      ref: a3b4c51
+  test: 0.12.0-rc.0
