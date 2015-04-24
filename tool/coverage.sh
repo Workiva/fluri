@@ -8,4 +8,4 @@ if [ -f "./lcov_coverage.lcov" ]; then
 fi
 
 pub get
-pub run dart_codecov_generator:generate_coverage test/fluri_test.dart
+pub global run dart_codecov_generator:generate_coverage test/fluri_test.dart
