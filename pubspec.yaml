@@ -6,7 +6,6 @@ authors:
   - Evan Weible <evan.weible@workiva.com>
   - Max Peterson <maxwell.peterson@workiva.com>
   - Trent Grover <trent.grover@workiva.com>
-documentation:
 homepage: https://github.com/Workiva/fluri
 dev_dependencies:
   test: 0.12.0-rc.0
