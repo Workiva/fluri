@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if [ -d "./lcov_report" ]; then
-    rm -rf ./lcov_report
+if [ -d "./coverage_report" ]; then
+    rm -rf ./coverage_report
 fi
-if [ -f "./lcov_coverage.lcov" ]; then
-    rm ./lcov_coverage.lcov
+if [ -f "./coverage.lcov" ]; then
+    rm ./coverage.lcov
 fi
 
 pub get
-pub global run dart_codecov_generator:generate_coverage test/fluri_test.dart
+pub global run dart_codecov_generator:generate_coverage --report-on=lib/ "$@"
