@@ -8,4 +8,5 @@ authors:
   - Trent Grover <trent.grover@workiva.com>
 homepage: https://github.com/Workiva/fluri
 dev_dependencies:
+  dart_style: '>=0.1.8 <0.2.0'
   test: 0.12.0-rc.0
