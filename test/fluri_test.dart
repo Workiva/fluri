@@ -3,7 +3,6 @@ library fluri.test.fluri_test;
 import 'package:fluri/fluri.dart';
 import 'package:test/test.dart';
 
-
 void commonFluriTests(dynamic getFluri()) {
   test('should allow setting the scheme', () {
     getFluri().scheme = 'https';
@@ -51,20 +50,17 @@ void commonFluriTests(dynamic getFluri()) {
   });
 }
 
-
 class ExtendingClass extends FluriMixin {
   ExtendingClass(String uri) {
     this.uri = Uri.parse(uri);
   }
 }
 
-
 class MixingClass extends Object with FluriMixin {
   MixingClass(String uri) {
     this.uri = Uri.parse(uri);
   }
 }
-
 
 void main() {
   String url = 'http://example.com/path/to/resource?limit=10&format=list#test';
