@@ -1,4 +1,4 @@
-fluri [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=travis-ci)](https://travis-ci.org/Workiva/fluri)
+fluri [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=travis-ci)](https://travis-ci.org/Workiva/fluri) [![Pub](https://img.shields.io/pub/v/fluri.svg)](https://pub.dartlang.org/packages/fluri)
 =====
 
 > Fluri is a fluent URI library for Dart built to make URI mutation easy.
