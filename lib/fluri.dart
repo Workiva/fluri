@@ -94,6 +94,7 @@ class Fluri extends FluriMixin {
     this.uri = Uri.parse(uri != null ? uri : '');
   }
 
+  @override
   String toString() => uri.toString();
 }
 
