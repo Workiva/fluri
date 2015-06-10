@@ -8,5 +8,17 @@ authors:
   - Trent Grover <trent.grover@workiva.com>
 homepage: https://github.com/Workiva/fluri
 dev_dependencies:
+  coverage:
+    git:
+      url: git://github.com/ekweible/coverage.git
+      ref: 796a265
+  dart_codecov:
+    git:
+      url: git://github.com/ekweible/dart_codecov.git
+      ref: 0.1.0
+  dart_codecov_generator:
+    git:
+      url: git://github.com/ekweible/dart_codecov_generator.git
+      ref: 0.3.0
   dart_style: '>=0.1.8 <0.2.0'
-  test: 0.12.0-rc.0
+  test: '>=0.12.0 <0.12.3'
