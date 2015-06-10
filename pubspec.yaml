@@ -6,7 +6,6 @@ authors:
   - Evan Weible <evan.weible@workiva.com>
   - Max Peterson <maxwell.peterson@workiva.com>
   - Trent Grover <trent.grover@workiva.com>
-documentation:
 homepage: https://github.com/Workiva/fluri
 dev_dependencies:
   coverage:
@@ -22,3 +21,4 @@ dev_dependencies:
       url: https://github.com/ekweible/dart_codecov_generator.git
       ref: 0.1.0
   test: '>=0.12.0 <0.13.0'
+  dart_style: '>=0.1.8 <0.2.0'

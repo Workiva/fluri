@@ -1,5 +1,4 @@
-fluri [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=travis-ci)](https://travis-ci.org/Workiva/fluri) [![codecov.io](http://codecov.io/github/Workiva/fluri/coverage.svg?branch=master)](http://codecov.io/github/Workiva/fluri?branch=master)
-
+fluri [![Pub](https://img.shields.io/pub/v/fluri.svg)](https://pub.dartlang.org/packages/fluri) [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=master)](https://travis-ci.org/Workiva/fluri) [![codecov.io](http://codecov.io/github/Workiva/fluri/coverage.svg?branch=master)](http://codecov.io/github/Workiva/fluri?branch=master)
 =====
 
 > Fluri is a fluent URI library for Dart built to make URI mutation easy.

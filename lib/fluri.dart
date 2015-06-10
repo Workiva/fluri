@@ -66,7 +66,6 @@
 ///     }
 library fluri;
 
-
 /// A fluent URI mutation API built on top of [Uri].
 ///
 /// [Fluri] can be used as a replacement for [Uri] and
@@ -96,9 +95,7 @@ class Fluri extends FluriMixin {
   }
 
   String toString() => uri.toString();
-
 }
-
 
 /// A fluent URI mutation API built on top of [Uri] that
 /// can be easily extended or mixed in.
@@ -190,5 +187,4 @@ class FluriMixin {
   void set fragment(String fragment) {
     _uri = _uri.replace(fragment: fragment);
   }
-
 }
