@@ -61,7 +61,7 @@
 ///         ..path = 'path/to/resource'
 ///         ..queryParameters = {'limit': '10', 'format': 'json'};
 ///
-///       print(req.uri.toString);
+///       print(req.uri.toString());
 ///       // https://example.com/path/to/resource?limit=10&format=json
 ///     }
 library fluri;
