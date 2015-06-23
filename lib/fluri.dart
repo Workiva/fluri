@@ -34,13 +34,13 @@
 ///     import 'package:fluri/fluri.dart';
 ///
 ///     void main() {
-///       Fluri uri = new Fluri()
+///       Fluri fluri = new Fluri()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
 ///         ..queryParameters = {'limit': '10', 'format': 'json'};
 ///
-///       print(uri.toString());
+///       print(fluri.toString());
 ///       // https://example.com/path/to/resource?limit=10&format=json
 ///     }
 ///
@@ -75,14 +75,24 @@ library fluri;
 ///     import 'package:fluri/fluri.dart';
 ///
 ///     void main() {
-///       Fluri uri = new Fluri()
+///       Fluri fluri = new Fluri()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
 ///         ..queryParameters = {'limit': '10', 'format': 'json'};
 ///
-///       print(uri.toString());
+///       print(fluri.toString());
 ///       // https://example.com/path/to/resource?limit=10&format=json
+///     }
+///
+/// If you need access to the underlying `Uri` instance, you
+/// can access it via the `uri` property:
+///
+///     import 'package:fluri/fluri.dart';
+///
+///     void main() {
+///       Fluri fluri = new Fluri();
+///       Uri uri = fluri.uri;
 ///     }
 class Fluri extends FluriMixin {
 

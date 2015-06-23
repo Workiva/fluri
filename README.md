@@ -38,14 +38,14 @@ With fluri, the above interactions are easy:
 ```dart
 import 'package:fluri/fluri.dart';
 
-Fluri uri = new Fluri()
+Fluri fluri = new Fluri()
   ..scheme = 'https'
   ..host = 'example.com'
   ..path = 'path/to/resource';
 
-uri
+fluri
   ..path = 'new/path'
   ..query = 'foo=true';
 
-uri.updateQuery({'bar': '10'});
+fluri.updateQuery({'bar': '10'});
 ```
