@@ -1,18 +1,16 @@
-/*
- * Copyright 2015 Workiva Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2015 Workiva Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 /// A fluent URI mutation library.
 ///
@@ -95,7 +93,6 @@ library fluri;
 ///       Uri uri = fluri.uri;
 ///     }
 class Fluri extends FluriMixin {
-
   /// Construct a new [Fluri] instance.
   ///
   /// A starting [uri] may be supplied which will be parsed
@@ -133,7 +130,6 @@ class Fluri extends FluriMixin {
 ///       // https://example.com/path/to/resource?limit=10&format=json
 ///     }
 class FluriMixin {
-
   /// The underlying [Uri] instance. All other URI mutations use this.
   Uri _uri = Uri.parse('');
 

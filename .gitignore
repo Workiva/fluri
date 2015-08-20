@@ -7,5 +7,4 @@ pubspec.lock
 dartdoc-viewer/
 
 # coverage
-coverage.lcov
-coverage_report/
+coverage/
