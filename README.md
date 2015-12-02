@@ -50,6 +50,18 @@ fluri
 fluri.updateQuery({'bar': '10'});
 ```
 
+Additional methods like `appendToPath` and `setQueryParam` make it easy to
+build on top of a base URL:
+
+```dart
+import 'package:fluri/fluri.dart';
+
+Fluri base = new Fluri('https://example.com/base/');
+
+Fluri fluri = new Fluri.from(base)
+  ..appendToPath('path/to/resource')
+  ..setQueryParam('count', '10');
+```
 
 ## Development
 

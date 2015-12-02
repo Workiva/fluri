@@ -1,10 +1,11 @@
 # dart
+.packages
 .pub
 packages
 pubspec.lock
 
 # docs
-dartdoc-viewer/
+/doc/api/
 
 # coverage
-coverage/
+/coverage/
