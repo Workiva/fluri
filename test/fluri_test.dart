@@ -17,7 +17,7 @@ library fluri.test.fluri_test;
 import 'package:fluri/fluri.dart';
 import 'package:test/test.dart';
 
-void commonFluriTests(dynamic getFluri()) {
+void commonFluriTests(FluriMixin getFluri()) {
   test('should allow setting the scheme', () {
     getFluri().scheme = 'https';
     expect(getFluri().scheme, equals('https'));
@@ -38,9 +38,32 @@ void commonFluriTests(dynamic getFluri()) {
     expect(getFluri().path, equals('/new/path'));
   });
 
+  test('should allow path with trailing slash', () {
+    getFluri().path = 'path/with/trailing/';
+    expect(getFluri().path, equals('/path/with/trailing/'));
+  });
+
   test('should allow setting the path via a list of path segments', () {
     getFluri().pathSegments = ['new', 'path'];
     expect(getFluri().pathSegments, equals(['new', 'path']));
+  });
+
+  test('should allow appending to the path', () {
+    getFluri().path = 'base/path/';
+    getFluri().appendToPath('segment');
+    expect(getFluri().path, equals('/base/path/segment'));
+  });
+
+  test('should allow appending multiple path segments', () {
+    getFluri().path = 'base/path/';
+    getFluri().appendToPath('with/additional/segments');
+    expect(getFluri().path, equals('/base/path/with/additional/segments'));
+  });
+
+  test('should allow adding a path segment', () {
+    getFluri().path = 'base/path';
+    getFluri().addPathSegment('segment');
+    expect(getFluri().path, equals('/base/path/segment'));
   });
 
   test('should allow setting the query', () {
@@ -51,6 +74,11 @@ void commonFluriTests(dynamic getFluri()) {
   test('should allow setting the query via a map of query parameters', () {
     getFluri().queryParameters = {'limit': '5', 'format': 'text'};
     expect(getFluri().query, equals('limit=5&format=text'));
+  });
+
+  test('should allow setting a single query parameter', () {
+    getFluri().setQueryParam('test', 'true');
+    expect(getFluri().queryParameters, containsPair('test', 'true'));
   });
 
   test('should allow updating the query parameters', () {
@@ -100,12 +128,28 @@ void main() {
       expect(fluri.toString(), equals('example.com/path'));
     });
 
+    test('should support constructing from another Fluri instance', () {
+      Fluri other = new Fluri('example.com');
+      expect(new Fluri.from(other).toString(), equals('example.com'));
+    });
+
+    test('should support constructing from a Uri instance', () {
+      var uriStr = 'https://example.com/path?query=true#fragment';
+      Uri uri = Uri.parse(uriStr);
+      expect(new Fluri.fromUri(uri).toString(), equals(uriStr));
+    });
+
     commonFluriTests(() => fluri);
   });
 
   group('FluriMixin', () {
-    ExtendingClass extender = new ExtendingClass(url);
-    MixingClass mixer = new MixingClass(url);
+    ExtendingClass extender;
+    MixingClass mixer;
+
+    setUp(() {
+      extender = new ExtendingClass(url);
+      mixer = new MixingClass(url);
+    });
 
     test('should be an empty uri by default', () {
       expect(new FluriMixin().uri.toString(), equals(''));

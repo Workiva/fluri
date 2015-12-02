@@ -101,6 +101,14 @@ class Fluri extends FluriMixin {
     this.uri = Uri.parse(uri != null ? uri : '');
   }
 
+  /// Construct a new [Fluri] instance from another [Fluri] instance.
+  Fluri.from(Fluri fluri) : this.fromUri(fluri.uri);
+
+  /// Construct a new [Fluri] instance from a [Uri] instance.
+  Fluri.fromUri(Uri uri) {
+    this.uri = uri;
+  }
+
   @override
   String toString() => uri.toString();
 }
@@ -169,6 +177,16 @@ class FluriMixin {
     _uri = _uri.replace(pathSegments: pathSegments);
   }
 
+  /// Append to the current path.
+  void appendToPath(String path) {
+    this.path = this.path + path;
+  }
+
+  /// Add a single path segment to the end of the current path.
+  void addPathSegment(String pathSegment) {
+    pathSegments = pathSegments.toList()..add(pathSegment);
+  }
+
   /// The URI query string.
   String get query => _uri.query;
   void set query(String query) {
@@ -179,6 +197,11 @@ class FluriMixin {
   Map<String, String> get queryParameters => _uri.queryParameters;
   void set queryParameters(Map<String, String> queryParameters) {
     _uri = _uri.replace(queryParameters: queryParameters);
+  }
+
+  /// Set a single query parameter.
+  void setQueryParam(String param, String value) {
+    updateQuery({param: value});
   }
 
   /// Update the URI query parameters, merging the given map with the
