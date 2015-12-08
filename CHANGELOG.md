@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2
+
+**New Features:**
+- `appendToPath(path)` - append a path literal to the current path.
+- `addPathSegment(segment)` - add a single path segment to the current path.
+- `setQueryParam(param, value)` - set a single query parameter.
+- `Fluri.from(other)` - construct a `Fluri` instance from another.
+- `Fluri.fromUri(uri)` - construct a `Fluri` instance from a `Uri` instance.
+
 ## 1.0.1
 _No source changes in this release._
 
