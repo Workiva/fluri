@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2
+## 1.1.0
 
 **New Features:**
 - `appendToPath(path)` - append a path literal to the current path.
