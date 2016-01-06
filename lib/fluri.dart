@@ -144,7 +144,7 @@ class FluriMixin {
   /// The full URI.
   Uri get uri => _uri;
   void set uri(Uri uri) {
-    _uri = uri;
+    _uri = uri ?? Uri.parse('');
   }
 
   /// The URI scheme or protocol. Examples: `http`, `https`, `ws`.
