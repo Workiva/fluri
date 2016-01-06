@@ -155,6 +155,11 @@ void main() {
       expect(new FluriMixin().uri.toString(), equals(''));
     });
 
+    test('should be an empty uri even if uri set to null', () {
+      var fluri = new FluriMixin()..uri = null;
+      expect(fluri.uri.toString(), equals(''));
+    });
+
     commonFluriTests(() => extender);
     commonFluriTests(() => mixer);
   });
