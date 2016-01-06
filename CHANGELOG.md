@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- **Bug Fix:** `FluriMixin` now defaults to an empty URI when `uri` is set to
+  null.
+
 ## 1.1.0
 
 **New Features:**
@@ -19,4 +24,5 @@ _No source changes in this release._
 
 
 ## 1.0.0
-- Initial version of Fluri: a fluent URI library for Dart built to make URI mutation easy.
+- Initial version of Fluri: a fluent URI library for Dart built to make URI
+  mutation easy.
