@@ -1,9 +1,16 @@
 language: dart
 dart:
   - stable
+
+addons:
+  sauce_connect:
+    username: "flurioss"
+    access_key: "c9138f34-838b-4336-85ff-81a55628c521"
+
 script:
   - pub run dart_dev format --check
   - pub run dart_dev analyze
   - pub run dart_dev test
   - pub run dart_dev coverage --no-html
   - bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
+  - dart tool/sauce_runner.dart
