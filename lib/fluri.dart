@@ -143,37 +143,37 @@ class FluriMixin {
 
   /// The full URI.
   Uri get uri => _uri;
-  void set uri(Uri uri) {
+  set uri(Uri uri) {
     _uri = uri ?? Uri.parse('');
   }
 
   /// The URI scheme or protocol. Examples: `http`, `https`, `ws`.
   String get scheme => _uri.scheme;
-  void set scheme(String scheme) {
+  set scheme(String scheme) {
     _uri = _uri.replace(scheme: scheme);
   }
 
   /// The URI host, including sub-domains and the tld.
   String get host => _uri.host;
-  void set host(String host) {
+  set host(String host) {
     _uri = _uri.replace(host: host);
   }
 
   /// The URI port number.
   int get port => _uri.port;
-  void set port(int port) {
+  set port(int port) {
     _uri = _uri.replace(port: port);
   }
 
   /// The URI path.
   String get path => _uri.path;
-  void set path(String path) {
+  set path(String path) {
     _uri = _uri.replace(path: path);
   }
 
   /// The URI path segments.
   Iterable<String> get pathSegments => _uri.pathSegments;
-  void set pathSegments(Iterable<String> pathSegments) {
+  set pathSegments(Iterable<String> pathSegments) {
     _uri = _uri.replace(pathSegments: pathSegments);
   }
 
@@ -189,13 +189,13 @@ class FluriMixin {
 
   /// The URI query string.
   String get query => _uri.query;
-  void set query(String query) {
+  set query(String query) {
     _uri = _uri.replace(query: query);
   }
 
   /// The URI query parameters.
   Map<String, String> get queryParameters => _uri.queryParameters;
-  void set queryParameters(Map<String, String> queryParameters) {
+  set queryParameters(Map<String, String> queryParameters) {
     _uri = _uri.replace(queryParameters: queryParameters);
   }
 
@@ -207,14 +207,14 @@ class FluriMixin {
   /// Update the URI query parameters, merging the given map with the
   /// current query parameters map instead of overwriting it.
   void updateQuery(Map<String, String> queryParameters) {
-    Map newQueryParameters = new Map.from(this.queryParameters);
+    var newQueryParameters = new Map<String, String>.from(this.queryParameters);
     newQueryParameters.addAll(queryParameters);
     _uri = _uri.replace(queryParameters: newQueryParameters);
   }
 
   /// The URI fragment or hash.
   String get fragment => _uri.fragment;
-  void set fragment(String fragment) {
+  set fragment(String fragment) {
     _uri = _uri.replace(fragment: fragment);
   }
 }
