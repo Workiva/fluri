@@ -17,6 +17,9 @@ library fluri.test.fluri_test;
 import 'package:fluri/fluri.dart';
 import 'package:test/test.dart';
 
+/// A suite of common tests that should be run against an instance of [Fluri],
+/// an instance of a class that extends [FluriMixin], and an instance of a class
+/// that mixes in [FluriMixin].
 void commonFluriTests(FluriMixin getFluri()) {
   test('should allow setting the scheme', () {
     getFluri().scheme = 'https';
@@ -92,18 +95,23 @@ void commonFluriTests(FluriMixin getFluri()) {
   });
 }
 
+/// A class to exercise extending [FluriMixin].
 class ExtendingClass extends FluriMixin {
+  /// Construct an instance from a [uri].
   ExtendingClass(String uri) {
     this.uri = Uri.parse(uri);
   }
 }
 
+/// A class to exercise mixing in [FluriMixin].
 class MixingClass extends Object with FluriMixin {
+  /// Construct an instance from a [uri].
   MixingClass(String uri) {
     this.uri = Uri.parse(uri);
   }
 }
 
+/// Runs the Fluri test suite.
 void main() {
   String url = 'http://example.com/path/to/resource?limit=10&format=list#test';
 
