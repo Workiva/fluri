@@ -66,6 +66,52 @@ Fluri fluri = new Fluri.from(base)
   ..setQueryParam('count', '10');
 ```
 
+Fluri also supports multi-value parameters. To access the query parameters as
+`Map<String, List<String>>`, use `queryParametersAll` (just like the `Uri`
+class):
+                                              
+```dart
+var fluri = new Fluri('/resource?format=json&format=text');
+print(fluri.queryParameters); // {'format': 'text'}
+print(fluri.queryParametersAll); // {'format': ['json', 'text']}
+```
+
+To set a single query parameter to multiple values:
+
+```dart
+var fluri = new Fluri('/resource');
+fluri.setQueryParam('format', ['json', 'text']);
+print(fluri.queryParametersAll); // {'format': ['json', 'text']}
+```
+
+Using `setQueryParam` will always replace existing values:
+
+```dart
+var fluri = new Fluri('/resource');
+fluri.setQueryParam('format', ['json', 'text']);
+fluri.setQueryParam('format', ['binary', 'text']);
+print(fluri.queryParametersAll); // {'format': ['binary', 'text']}
+```
+
+You can use the `queryParametersAll` setter to set the entire query with
+multi-value param support:
+
+```dart
+var fluri = new Fluri('/resource');
+fluri.queryParametersAll = {'format': ['json', 'text'], 'count': ['5']}
+print(fluri.queryParametersAll); // {'format': ['json', 'text'], 'count': ['5']}
+```
+
+Again, if you need to preserve existing query parameters, you can use the
+`updateQuery` method to do so. Set `mergeValues: true` and any values that you
+provide will be merged with existing values:
+
+```dart
+var fluri = new Fluri('/resource?format=json');
+fluri.updateQuery({'format': ['binary', 'text'], 'count': '5'}, mergeValues: true);
+print(fluri.queryParametersAll); // {'format': ['binary', 'json', 'text'], 'count': ['5']}
+```
+
 ## Development
 
 This project leverages [the dart_dev package](https://github.com/Workiva/dart_dev)

@@ -93,6 +93,101 @@ void commonFluriTests(FluriMixin getFluri()) {
     getFluri().fragment = 'hashtag';
     expect(getFluri().fragment, equals('hashtag'));
   });
+
+  group('(multi-value params)', () {
+    test('should allow setting the entire URI', () {
+      getFluri().uri =
+          Uri.parse('https://example.org/?limit=5&format=binary&format=text');
+      expect(
+          getFluri().query,
+          allOf(contains('limit=5'), contains('format=binary'),
+              contains('format=text')));
+      expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
+      expect(getFluri().queryParametersAll['format'],
+          unorderedEquals(['binary', 'text']));
+    });
+
+    test('should allow setting the query via a map of query parameters', () {
+      getFluri().queryParametersAll = {
+        'limit': ['10'],
+        'format': ['json']
+      };
+      getFluri().queryParametersAll = {
+        'limit': ['5'],
+        'format': ['binary', 'text']
+      };
+      expect(
+          getFluri().query,
+          allOf(contains('limit=5'), contains('format=binary'),
+              contains('format=text')));
+      expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
+      expect(getFluri().queryParametersAll['format'],
+          unorderedEquals(['binary', 'text']));
+    });
+
+    test('should allow setting a single query parameter', () {
+      getFluri().setQueryParam('limit', '5');
+      getFluri().setQueryParam('format', 'json');
+      getFluri().setQueryParam('format', ['binary', 'text']);
+      expect(
+          getFluri().query,
+          allOf(contains('limit=5'), contains('format=binary'),
+              contains('format=text')));
+      expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
+      expect(getFluri().queryParametersAll['format'],
+          unorderedEquals(['binary', 'text']));
+    });
+
+    test('should allow updating the query parameters ', () {
+      getFluri().updateQuery({'limit': '10', 'format': 'json'});
+      getFluri().updateQuery({
+        'limit': '5',
+        'format': ['binary', 'text']
+      });
+      expect(
+          getFluri().query,
+          allOf(contains('limit=5'), contains('format=binary'),
+              contains('format=text')));
+      expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
+      expect(getFluri().queryParametersAll['format'],
+          unorderedEquals(['binary', 'text']));
+    });
+
+    test(
+        'should allow updating the query parameters while preserving existing values',
+        () {
+      getFluri().updateQuery({
+        'limit': '5',
+        'format': ['binary', 'text']
+      });
+      getFluri().updateQuery({
+        'format': ['json', 'text']
+      }, mergeValues: true);
+      expect(
+          getFluri().query,
+          allOf(contains('limit=5'), contains('format=binary'),
+              contains('json'), contains('format=text')));
+      expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
+      expect(getFluri().queryParametersAll['format'],
+          unorderedEquals(['binary', 'json', 'text']));
+    });
+
+    test(
+        'should throw if invalid param value is given when setting a single query parameter',
+        () {
+      expect(() {
+        getFluri().setQueryParam('invalid', 10);
+      }, throwsArgumentError);
+    });
+
+    test(
+        'should throw if invalid param value is given when updating the query parameters',
+        () {
+      expect(() {
+        getFluri().updateQuery({'invalid': 10});
+      }, throwsArgumentError);
+    });
+  });
 }
 
 /// A class to exercise extending [FluriMixin].
@@ -145,6 +240,24 @@ void main() {
       var uriStr = 'https://example.com/path?query=true#fragment';
       Uri uri = Uri.parse(uriStr);
       expect(new Fluri.fromUri(uri).toString(), equals(uriStr));
+    });
+
+    test(
+        'should handle multi-value params when constructing from a Uri instance',
+        () {
+      Uri uri = Uri.parse('https://example.org/?test=a&test=b');
+      Fluri fluri = new Fluri.fromUri(uri);
+      expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
+      expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
+    });
+
+    test(
+        'should handle multi-value params when constructing from another Fluri instance',
+        () {
+      Fluri other = new Fluri('https://example.org/?test=a&test=b');
+      Fluri fluri = new Fluri.from(other);
+      expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
+      expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
     });
 
     commonFluriTests(() => fluri);
