@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0
+
+- **Feature:** Support for multi-value parameters.
+
+  See the [readme][https://github.com/Workiva/fluri/blob/master/README.md] for
+  usage examples.
+
+- **Dart SDK:** In order to support multi-value parameters, the minimum required
+  Dart SDK version is now 1.15.0 since that is when the `queryParametersAll`
+  field was added to the `Uri` class.
+
 ## 1.1.1
 
 - **Bug Fix:** `FluriMixin` now defaults to an empty URI when `uri` is set to
