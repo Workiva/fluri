@@ -179,6 +179,9 @@ class FluriMixin {
 
   /// Append to the current path.
   void appendToPath(String path) {
+    if (this.path.endsWith('/') && path.startsWith('/')) {
+      path = path.substring(1);
+    }
     this.path = this.path + path;
   }
 

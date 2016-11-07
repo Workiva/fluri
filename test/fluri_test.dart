@@ -63,6 +63,16 @@ void commonFluriTests(FluriMixin getFluri()) {
     expect(getFluri().path, equals('/base/path/with/additional/segments'));
   });
 
+  test('should append to the path without introducing double slashes', () {
+    getFluri().path = 'base/path/';
+    getFluri().appendToPath('/starts/with/slash');
+    expect(getFluri().path, equals('/base/path/starts/with/slash'));
+
+    getFluri().path = 'base/path';
+    getFluri().appendToPath('/starts/with/slash');
+    expect(getFluri().path, equals('/base/path/starts/with/slash'));
+  });
+
   test('should allow adding a path segment', () {
     getFluri().path = 'base/path';
     getFluri().addPathSegment('segment');
