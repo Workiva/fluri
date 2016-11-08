@@ -4,10 +4,22 @@
 [![codecov.io](http://codecov.io/github/Workiva/fluri/coverage.svg?branch=master)](http://codecov.io/github/Workiva/fluri?branch=master)
 [![documentation](https://img.shields.io/badge/Documentation-fluri-blue.svg)](https://www.dartdocs.org/documentation/fluri/latest/)
 
+- [Changelog/Release Notes](https://github.com/Workiva/fluri/releases)
+- [Examples/Usage](#examples-usage)
+- [Minimum Dart SDK](#dart-sdk)
+- [Versioning and Stability](#versioning-and-stability)
+- [Development](#development)
+
+
+
+## Examples/Usage
+
 > Fluri is a fluent URI library for Dart built to make URI mutation easy.
 
-The `dart:core.Uri` class provides an immutable representation of URIs, which makes it difficult to incrementally build
-them or update them at a later time. If you wanted to build a long URI from the individual pieces, you would do something like this:
+The `dart:core.Uri` class provides an immutable representation of URIs, which
+makes it difficult to incrementally build them or update them at a later time.
+If you wanted to build a long URI from the individual pieces, you would do
+something like this:
 
 ```dart
 Uri uri = new Uri(
@@ -17,7 +29,8 @@ Uri uri = new Uri(
 );
 ```
 
-If you later wanted to update the path and add a query parameter, you'd have to do this:
+If you later wanted to update the path and add a query parameter, you'd have to
+do this:
 
 ```dart
 uri = uri.replace(
@@ -34,7 +47,8 @@ query['bar'] = '10';
 uri = uri.replace(queryParameters: query);
 ```
 
-As you can see, incremental or fluent-style URI mutations become a hassle with the core `Uri` class.
+As you can see, incremental or fluent-style URI mutations become a hassle with
+the core `Uri` class.
 
 With fluri, the above interactions are easy:
 
@@ -111,6 +125,27 @@ var fluri = new Fluri('/resource?format=json');
 fluri.updateQuery({'format': ['binary', 'text'], 'count': '5'}, mergeValues: true);
 print(fluri.queryParametersAll); // {'format': ['binary', 'json', 'text'], 'count': ['5']}
 ```
+
+
+### Dart SDK
+
+As of version 1.2.0 of the `fluri` package, the minimum required Dart SDK
+version is 1.15.0.
+
+
+### Versioning and Stability
+
+This library follows semver to the best of our interpretation of it. We want
+this library to be a stable dependency that’s easy to keep current. A good
+explanation of the versioning scheme that we intend to follow can be seen here
+from React.js:
+
+https://facebook.github.io/react/blog/2016/02/19/new-versioning-scheme.html
+
+In short: our goal is for every major release to be backwards compatible with
+the previous major version, giving consumers a lifespan of two major versions to
+deal with deprecations.
+
 
 ## Development
 
