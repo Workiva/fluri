@@ -35,4 +35,4 @@ stability commitment in the README.
 
 ### Code Review
 
-@Workiva/client-platform-pp
+@dustinlessard-wf @evanweible-wf @jayudey-wf @maxwellpeterson-wf @sebastianmalysa-wf @trentgrover-wf

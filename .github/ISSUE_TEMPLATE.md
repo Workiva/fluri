@@ -10,4 +10,4 @@ Describe your issue here... _If it is a bug - PLEASE follow our
 ---
 
 
-__FYI:__ @Workiva/client-platform-pp
+__FYI:__ @dustinlessard-wf @evanweible-wf @jayudey-wf @maxwellpeterson-wf @sebastianmalysa-wf @trentgrover-wf
