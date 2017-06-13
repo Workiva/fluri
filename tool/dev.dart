@@ -26,7 +26,7 @@ Future main(List<String> args) async {
   config.analyze.entryPoints = directories;
   config.copyLicense.directories = directories;
   config.coverage.reportOn = ['lib/'];
-  config.format.directories = directories;
+  config.format.paths = directories;
   config.test.platforms = ['vm'];
 
   await dev(args);
