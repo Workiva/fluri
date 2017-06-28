@@ -1,5 +1,5 @@
 name: fluri
-version: 1.2.2
+version: 1.2.3
 description: Fluri is a fluent URI library built to make URI mutation easy.
 authors:
   - Workiva Client Platform Team <clientplatform@workiva.com>
