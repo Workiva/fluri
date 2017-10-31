@@ -5,6 +5,10 @@ runner_image: drydock-prod.workiva.net/workiva/smithy-runner-generator:153818 # 
 
 script:
   - pub get
+  - 'echo "Expected base branch: master"'
+  - 'echo "Expected head branch: branch"'
+  - 'echo "Expected base commit: 7bcc05..."'
+  - printenv
 
 artifacts:
   build:
