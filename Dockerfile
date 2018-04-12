@@ -1,4 +1,5 @@
-FROM drydock-prod.workiva.net/workiva/smithy-runner-generator:153818 as build
+# Smithy with Dart 1.24.3 and Chrome:
+FROM drydock-prod.workiva.net/workiva/smithy-runner-generator:302466 as build
 
 # Build Environment Vars
 ARG BUILD_ID

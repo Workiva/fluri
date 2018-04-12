@@ -218,7 +218,7 @@ class MixingClass extends Object with FluriMixin {
 
 /// Runs the Fluri test suite.
 void main() {
-  String url = 'http://example.com/path/to/resource?limit=10&format=list#test';
+  const url = 'http://example.com/path/to/resource?limit=10&format=list#test';
 
   group('Fluri', () {
     Fluri fluri;
@@ -242,21 +242,21 @@ void main() {
     });
 
     test('should support constructing from another Fluri instance', () {
-      Fluri other = new Fluri('example.com');
+      final other = new Fluri('example.com');
       expect(new Fluri.from(other).toString(), equals('example.com'));
     });
 
     test('should support constructing from a Uri instance', () {
-      var uriStr = 'https://example.com/path?query=true#fragment';
-      Uri uri = Uri.parse(uriStr);
+      const uriStr = 'https://example.com/path?query=true#fragment';
+      final uri = Uri.parse(uriStr);
       expect(new Fluri.fromUri(uri).toString(), equals(uriStr));
     });
 
     test(
         'should handle multi-value params when constructing from a Uri instance',
         () {
-      Uri uri = Uri.parse('https://example.org/?test=a&test=b');
-      Fluri fluri = new Fluri.fromUri(uri);
+      final uri = Uri.parse('https://example.org/?test=a&test=b');
+      final fluri = new Fluri.fromUri(uri);
       expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
       expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
     });
@@ -264,8 +264,8 @@ void main() {
     test(
         'should handle multi-value params when constructing from another Fluri instance',
         () {
-      Fluri other = new Fluri('https://example.org/?test=a&test=b');
-      Fluri fluri = new Fluri.from(other);
+      final other = new Fluri('https://example.org/?test=a&test=b');
+      final fluri = new Fluri.from(other);
       expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
       expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
     });
@@ -287,7 +287,7 @@ void main() {
     });
 
     test('should be an empty uri even if uri set to null', () {
-      var fluri = new FluriMixin()..uri = null;
+      final fluri = new FluriMixin()..uri = null;
       expect(fluri.uri.toString(), equals(''));
     });
 

@@ -178,11 +178,12 @@ class FluriMixin {
   }
 
   /// Append to the current path.
-  void appendToPath(String path) {
-    if (this.path.endsWith('/') && path.startsWith('/')) {
-      path = path.substring(1);
+  void appendToPath(String pathToAppend) {
+    var normalizedPathToAppend = pathToAppend;
+    if (path.endsWith('/') && pathToAppend.startsWith('/')) {
+      normalizedPathToAppend = pathToAppend.substring(1);
     }
-    this.path = this.path + path;
+    path = '$path$normalizedPathToAppend';
   }
 
   /// Add a single path segment to the end of the current path.
