@@ -22,7 +22,7 @@ import 'package:dart_dev/dart_dev.dart' show dev, config;
 Future main(List<String> args) async {
   // https://github.com/Workiva/dart_dev
 
-  List<String> directories = ['lib/', 'test/', 'tool/'];
+  const directories = const ['lib/', 'test/', 'tool/'];
   config.analyze.entryPoints = directories;
   config.copyLicense.directories = directories;
   config.coverage.reportOn = ['lib/'];
