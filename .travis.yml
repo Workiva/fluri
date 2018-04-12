@@ -9,29 +9,10 @@ cache:
   directories:
     - $HOME/.pub-cache
 
-# Build stages: https://docs.travis-ci.com/user/build-stages/.
-stages:
-  - install
-  - quality
-  - testing
-  - reporting
-
-jobs:
-  include:
-    - stage: quality
-      script: pub run dart_dev format --check
-
-    - stage: quality
-      script: pub run dart_dev analyze
-
-    - stage: quality
-      script: pub run dependency_validator -i coverage,dart_style,dartdoc
-
-    - stage: test
-      script: pub run dart_dev test
-
-    - stage: test
-      script: pub run dart_dev coverage --no-html
-
-    - stage: reporting
-      script: bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
+script:
+- pub run dart_dev format --check
+- pub run dart_dev analyze
+- pub run dependency_validator -i coverage,dart_style,dartdoc
+- pub run dart_dev test
+- pub run dart_dev coverage --no-html
+- bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
