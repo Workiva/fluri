@@ -1,8 +1,7 @@
 language: dart
 
 dart:
-  - stable
-  - dev
+  - 1.24.3
 
 # Re-use downloaded pub packages everywhere.
 cache:
