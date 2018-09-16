@@ -145,11 +145,3 @@ https://facebook.github.io/react/blog/2016/02/19/new-versioning-scheme.html
 In short: our goal is for every major release to be backwards compatible with
 the previous major version, giving consumers a lifespan of two major versions to
 deal with deprecations.
-
-
-## Development
-
-This project leverages [the dart_dev package](https://github.com/Workiva/dart_dev)
-for most of its tooling needs, including static analysis, code formatting,
-running tests, collecting coverage, and serving examples. Check out the dart_dev
-readme for more information.
