@@ -1,9 +1,16 @@
 language: dart
+
 dart:
-  - stable
+  - 1.24.3
+  - 2.0.0
+
+# Re-use downloaded pub packages everywhere.
+cache:
+  directories:
+    - $HOME/.pub-cache
+
 script:
-  - pub run dart_dev format --check
-  - pub run dart_dev analyze
-  - pub run dart_dev test
-  - pub run dart_dev coverage --no-html
-  - bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
+- dartfmt --set-exit-if-changed -w .
+- dartanalyzer lib test
+- pub run dependency_validator -i coverage
+- pub run test
