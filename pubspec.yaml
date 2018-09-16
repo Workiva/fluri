@@ -1,5 +1,5 @@
 name: fluri
-version: 1.2.1
+version: 1.2.4
 description: Fluri is a fluent URI library built to make URI mutation easy.
 authors:
   - Workiva Client Platform Team <clientplatform@workiva.com>
@@ -10,10 +10,7 @@ authors:
   - Trent Grover <trent.grover@workiva.com>
 homepage: https://github.com/Workiva/fluri
 dev_dependencies:
-  coverage: "^0.7.2"
-  dart_dev: "^1.5.1"
-  dart_style: "^0.2.0"
-  dartdoc: "^0.9.0"
-  test: "^0.12.0"
+  dependency_validator: ^1.1.2
+  test: '>=0.12.23+1 <2.0.0'
 environment:
-  sdk: ">=1.15.0 <2.0.0"
+  sdk: ">=1.23.0 <3.0.0"
