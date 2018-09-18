@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.2.5
+
+- **Improvement:** Dart 2 compatible! CI now runs on Dart 2 stable and Dart 1.
+
+## 1.2.4
+
+- **Improvement:** Initial Dart 2 and DDC compatibility changes.
+
+- **Documentation:** Add a `CODEOWNERS` file.
+
+## 1.2.3
+
+- **Tech Debt:** Update some dependency ranges for DDC compatibility.
+
+## 1.2.2
+
+- **Tech Debt:** Add and address lints.
+
+## 1.2.1
+
+- **Bug Fix:** Calling `.appendToPath()` will check for and prevent double
+  slashes when joining the current path with the additional path.
+
+- **Documentation:** Add GitHub Issue and Pull Request templates.
+
 ## 1.2.0
 
 - **Feature:** Support for multi-value parameters.
