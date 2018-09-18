@@ -12,5 +12,5 @@ cache:
 script:
 - dartfmt --set-exit-if-changed -w .
 - dartanalyzer lib test
-- pub run dependency_validator -i coverage
+- pub run dependency_validator
 - pub run test
