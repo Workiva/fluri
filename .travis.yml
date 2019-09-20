@@ -2,7 +2,7 @@ language: dart
 
 dart:
   - 1.24.3
-  - 2.0.0
+  - stable
 
 # Re-use downloaded pub packages everywhere.
 cache:
@@ -10,7 +10,4 @@ cache:
     - $HOME/.pub-cache
 
 script:
-- dartfmt --set-exit-if-changed -w .
-- dartanalyzer lib test
-- pub run dependency_validator
-- pub run test
+  - ./validate.sh
