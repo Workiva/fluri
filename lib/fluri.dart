@@ -222,7 +222,7 @@ class FluriMixin {
           value,
           'value',
           'Must be a String or '
-          'Iterable<String>');
+              'Iterable<String>');
     }
 
     updateQuery({param: value});
