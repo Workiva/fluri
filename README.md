@@ -1,4 +1,5 @@
-# fluri 
+# fluri
+
 [![Pub](https://img.shields.io/pub/v/fluri.svg)](https://pub.dartlang.org/packages/fluri)
 [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=master)](https://travis-ci.org/Workiva/fluri)
 [![codecov.io](http://codecov.io/github/Workiva/fluri/coverage.svg?branch=master)](http://codecov.io/github/Workiva/fluri?branch=master)
@@ -9,8 +10,6 @@
 - [Minimum Dart SDK](#dart-sdk)
 - [Versioning and Stability](#versioning-and-stability)
 - [Development](#development)
-
-
 
 ## Examples/Usage
 
@@ -83,7 +82,7 @@ Fluri fluri = new Fluri.from(base)
 Fluri also supports multi-value parameters. To access the query parameters as
 `Map<String, List<String>>`, use `queryParametersAll` (just like the `Uri`
 class):
-                                              
+
 ```dart
 var fluri = new Fluri('/resource?format=json&format=text');
 print(fluri.queryParameters); // {'format': 'text'}
@@ -125,23 +124,3 @@ var fluri = new Fluri('/resource?format=json');
 fluri.updateQuery({'format': ['binary', 'text'], 'count': '5'}, mergeValues: true);
 print(fluri.queryParametersAll); // {'format': ['binary', 'json', 'text'], 'count': ['5']}
 ```
-
-
-### Dart SDK
-
-As of version 1.2.0 of the `fluri` package, the minimum required Dart SDK
-version is 1.15.0.
-
-
-### Versioning and Stability
-
-This library follows semver to the best of our interpretation of it. We want
-this library to be a stable dependency that’s easy to keep current. A good
-explanation of the versioning scheme that we intend to follow can be seen here
-from React.js:
-
-https://facebook.github.io/react/blog/2016/02/19/new-versioning-scheme.html
-
-In short: our goal is for every major release to be backwards compatible with
-the previous major version, giving consumers a lifespan of two major versions to
-deal with deprecations.
