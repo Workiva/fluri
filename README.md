@@ -1,15 +1,8 @@
 # fluri
 
-[![Pub](https://img.shields.io/pub/v/fluri.svg)](https://pub.dartlang.org/packages/fluri)
+[![Pub](https://img.shields.io/pub/v/fluri.svg)](https://pub.dev/packages/fluri)
 [![Build Status](https://travis-ci.org/Workiva/fluri.svg?branch=master)](https://travis-ci.org/Workiva/fluri)
-[![codecov.io](http://codecov.io/github/Workiva/fluri/coverage.svg?branch=master)](http://codecov.io/github/Workiva/fluri?branch=master)
-[![documentation](https://img.shields.io/badge/Documentation-fluri-blue.svg)](https://www.dartdocs.org/documentation/fluri/latest/)
-
-- [Changelog/Release Notes](https://github.com/Workiva/fluri/releases)
-- [Examples/Usage](#examples-usage)
-- [Minimum Dart SDK](#dart-sdk)
-- [Versioning and Stability](#versioning-and-stability)
-- [Development](#development)
+[![documentation](https://img.shields.io/badge/Documentation-fluri-blue.svg)](https://pub.dev/documentation/fluri/latest/)
 
 ## Examples/Usage
 

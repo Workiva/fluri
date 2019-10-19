@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.8
+
+- Readme updates.
+
+## 1.2.7
+
+- Readme updates.
+
 ## 1.2.6
 
 - Drop Dart 1 support.
