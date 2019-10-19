@@ -224,16 +224,16 @@ void main() {
     Fluri fluri;
 
     setUp(() {
-      fluri = new Fluri(url);
+      fluri = Fluri(url);
     });
 
     test('should accept an optional starting URI upon construction', () {
-      expect(new Fluri().toString(), equals(''));
-      expect(new Fluri('example.com').toString(), equals('example.com'));
+      expect(Fluri().toString(), equals(''));
+      expect(Fluri('example.com').toString(), equals('example.com'));
     });
 
     test('should be an empty uri by default', () {
-      expect(new Fluri().toString(), equals(''));
+      expect(Fluri().toString(), equals(''));
     });
 
     test('should allow replacing the entire url', () {
@@ -242,21 +242,21 @@ void main() {
     });
 
     test('should support constructing from another Fluri instance', () {
-      final other = new Fluri('example.com');
-      expect(new Fluri.from(other).toString(), equals('example.com'));
+      final other = Fluri('example.com');
+      expect(Fluri.from(other).toString(), equals('example.com'));
     });
 
     test('should support constructing from a Uri instance', () {
       const uriStr = 'https://example.com/path?query=true#fragment';
       final uri = Uri.parse(uriStr);
-      expect(new Fluri.fromUri(uri).toString(), equals(uriStr));
+      expect(Fluri.fromUri(uri).toString(), equals(uriStr));
     });
 
     test(
         'should handle multi-value params when constructing from a Uri instance',
         () {
       final uri = Uri.parse('https://example.org/?test=a&test=b');
-      final fluri = new Fluri.fromUri(uri);
+      final fluri = Fluri.fromUri(uri);
       expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
       expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
     });
@@ -264,8 +264,8 @@ void main() {
     test(
         'should handle multi-value params when constructing from another Fluri instance',
         () {
-      final other = new Fluri('https://example.org/?test=a&test=b');
-      final fluri = new Fluri.from(other);
+      final other = Fluri('https://example.org/?test=a&test=b');
+      final fluri = Fluri.from(other);
       expect(fluri.query, allOf(contains('test=a'), contains('test=b')));
       expect(fluri.queryParametersAll['test'], equals(['a', 'b']));
     });
@@ -278,16 +278,16 @@ void main() {
     MixingClass mixer;
 
     setUp(() {
-      extender = new ExtendingClass(url);
-      mixer = new MixingClass(url);
+      extender = ExtendingClass(url);
+      mixer = MixingClass(url);
     });
 
     test('should be an empty uri by default', () {
-      expect(new FluriMixin().uri.toString(), equals(''));
+      expect(FluriMixin().uri.toString(), equals(''));
     });
 
     test('should be an empty uri even if uri set to null', () {
-      final fluri = new FluriMixin()..uri = null;
+      final fluri = FluriMixin()..uri = null;
       expect(fluri.uri.toString(), equals(''));
     });
 

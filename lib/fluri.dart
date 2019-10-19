@@ -218,7 +218,7 @@ class FluriMixin {
   /// `Iterable<String>`.
   void setQueryParam(String param, dynamic /*String|Iterable<String>*/ value) {
     if (value is! String && value is! Iterable<String>) {
-      throw new ArgumentError.value(
+      throw ArgumentError.value(
           value,
           'value',
           'Must be a String or '
@@ -242,12 +242,12 @@ class FluriMixin {
   /// for that parameter. Duplicate values will be discarded.
   void updateQuery(
       Map<String, dynamic /*String|Iterable<String>*/ > queryParametersToUpdate,
-      {bool mergeValues: false}) {
+      {bool mergeValues = false}) {
     final newQueryParameters = <String, List<String>>{};
 
     // Copy the current query param values.
     queryParametersAll.forEach((key, value) {
-      newQueryParameters[key] = new List.from(value);
+      newQueryParameters[key] = List.from(value);
     });
 
     // Update the query using the given params.
@@ -269,7 +269,7 @@ class FluriMixin {
           }
         }
       } else {
-        throw new ArgumentError('Query parameter "$key" has value "$value" '
+        throw ArgumentError('Query parameter "$key" has value "$value" '
             'which is not a String or an Iterable<String>.');
       }
     });

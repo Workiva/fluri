@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.6
+
+- Drop Dart 1 support.
+
 ## 1.2.5
 
 - **Improvement:** Dart 2 compatible! CI now runs on Dart 2 stable and Dart 1.
@@ -29,9 +33,6 @@
 
 - **Feature:** Support for multi-value parameters.
 
-  See the [readme][https://github.com/Workiva/fluri/blob/master/README.md] for
-  usage examples.
-
 - **Dart SDK:** In order to support multi-value parameters, the minimum required
   Dart SDK version is now 1.15.0 since that is when the `queryParametersAll`
   field was added to the `Uri` class.
@@ -52,13 +53,14 @@
 - `Fluri.fromUri(uri)` - construct a `Fluri` instance from a `Uri` instance.
 
 ## 1.0.1
+
 _No source changes in this release._
 
 - Add code coverage reporting.
 - Minor fixes and improvements to the readme.
 - Code formatting improvements thanks to `dartfmt`.
 
-
 ## 1.0.0
+
 - Initial version of Fluri: a fluent URI library for Dart built to make URI
   mutation easy.
