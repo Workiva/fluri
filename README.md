@@ -14,7 +14,7 @@ If you wanted to build a long URI from the individual pieces, you would do
 something like this:
 
 ```dart
-Uri uri = new Uri(
+var uri = Uri(
   scheme: 'https',
   host: 'example.com',
   path: 'path/to/resource'
@@ -34,7 +34,7 @@ uri = uri.replace(
 Now let's say you want update the query without losing what you already have:
 
 ```dart
-Map query = new Map.from(uri.queryParameters);
+var query = Map.from(uri.queryParameters);
 query['bar'] = '10';
 uri = uri.replace(queryParameters: query);
 ```
@@ -47,7 +47,7 @@ With fluri, the above interactions are easy:
 ```dart
 import 'package:fluri/fluri.dart';
 
-Fluri fluri = new Fluri()
+var fluri = Fluri()
   ..scheme = 'https'
   ..host = 'example.com'
   ..path = 'path/to/resource';
@@ -65,9 +65,9 @@ build on top of a base URL:
 ```dart
 import 'package:fluri/fluri.dart';
 
-Fluri base = new Fluri('https://example.com/base/');
+var base = Fluri('https://example.com/base/');
 
-Fluri fluri = new Fluri.from(base)
+var fluri = Fluri.from(base)
   ..appendToPath('path/to/resource')
   ..setQueryParam('count', '10');
 ```
@@ -77,7 +77,7 @@ Fluri also supports multi-value parameters. To access the query parameters as
 class):
 
 ```dart
-var fluri = new Fluri('/resource?format=json&format=text');
+var fluri = Fluri('/resource?format=json&format=text');
 print(fluri.queryParameters); // {'format': 'text'}
 print(fluri.queryParametersAll); // {'format': ['json', 'text']}
 ```
@@ -85,7 +85,7 @@ print(fluri.queryParametersAll); // {'format': ['json', 'text']}
 To set a single query parameter to multiple values:
 
 ```dart
-var fluri = new Fluri('/resource');
+var fluri = Fluri('/resource');
 fluri.setQueryParam('format', ['json', 'text']);
 print(fluri.queryParametersAll); // {'format': ['json', 'text']}
 ```
@@ -93,7 +93,7 @@ print(fluri.queryParametersAll); // {'format': ['json', 'text']}
 Using `setQueryParam` will always replace existing values:
 
 ```dart
-var fluri = new Fluri('/resource');
+var fluri = Fluri('/resource');
 fluri.setQueryParam('format', ['json', 'text']);
 fluri.setQueryParam('format', ['binary', 'text']);
 print(fluri.queryParametersAll); // {'format': ['binary', 'text']}
@@ -103,7 +103,7 @@ You can use the `queryParametersAll` setter to set the entire query with
 multi-value param support:
 
 ```dart
-var fluri = new Fluri('/resource');
+var fluri = Fluri('/resource');
 fluri.queryParametersAll = {'format': ['json', 'text'], 'count': ['5']}
 print(fluri.queryParametersAll); // {'format': ['json', 'text'], 'count': ['5']}
 ```
@@ -113,7 +113,7 @@ Again, if you need to preserve existing query parameters, you can use the
 provide will be merged with existing values:
 
 ```dart
-var fluri = new Fluri('/resource?format=json');
+var fluri = Fluri('/resource?format=json');
 fluri.updateQuery({'format': ['binary', 'text'], 'count': '5'}, mergeValues: true);
 print(fluri.queryParametersAll); // {'format': ['binary', 'json', 'text'], 'count': ['5']}
 ```

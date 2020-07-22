@@ -7,8 +7,8 @@ cache:
 
 jobs:
   include:
-    - dart: 2.2.0
-      name: "SDK: 2.2.0"
+    - dart: 2.3.0
+      name: "SDK: 2.3.0"
       script:
         - dartanalyzer .
         - pub run test

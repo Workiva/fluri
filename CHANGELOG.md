@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+- Add a `removeQueryParam()` method.
+
 ## 1.2.8
 
 - Readme updates.

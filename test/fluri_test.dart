@@ -1,4 +1,4 @@
-// Copyright 2015 Workiva Inc.
+// Copyright 2015-2020 Workiva Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -146,6 +146,26 @@ void commonFluriTests(FluriMixin getFluri()) {
       expect(getFluri().queryParametersAll['limit'], unorderedEquals(['5']));
       expect(getFluri().queryParametersAll['format'],
           unorderedEquals(['binary', 'text']));
+    });
+
+    test('should allow removing a query parameter', () {
+      final fluri = getFluri()
+        ..updateQuery({
+          'single': 'true',
+          'multi': ['one', 'two']
+        });
+      expect(fluri.queryParametersAll.keys,
+          allOf(contains('single'), contains('multi')));
+      fluri.removeQueryParam('multi');
+      expect(fluri.queryParametersAll['single'], ['true']);
+      expect(fluri.queryParametersAll.keys, isNot(contains('multi')));
+      fluri.removeQueryParam('single');
+      expect(fluri.queryParametersAll.keys, isNot(contains('single')));
+    });
+
+    test('should do nothing if removing a non-existant query parameter', () {
+      expect(
+          (getFluri()..removeQueryParam('none')).queryParameters, isNotEmpty);
     });
 
     test('should allow updating the query parameters ', () {

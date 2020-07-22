@@ -1,4 +1,4 @@
-// Copyright 2015 Workiva Inc.
+// Copyright 2015-2020 Workiva Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
 ///     import 'package:fluri/fluri.dart';
 ///
 ///     void main() {
-///       Fluri fluri = new Fluri()
+///       var fluri = Fluri()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
@@ -53,7 +53,7 @@
 ///     class Request extends Object with FluriMixin {}
 ///
 ///     void main() {
-///       Request req = new Request()
+///       var req = Request()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
@@ -73,7 +73,7 @@ library fluri;
 ///     import 'package:fluri/fluri.dart';
 ///
 ///     void main() {
-///       Fluri fluri = new Fluri()
+///       var fluri = Fluri()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
@@ -95,8 +95,7 @@ library fluri;
 class Fluri extends FluriMixin {
   /// Construct a new [Fluri] instance.
   ///
-  /// A starting [uri] may be supplied which will be parsed
-  /// by [Uri].[Uri.parse].
+  /// A starting [uri] may be supplied which will be parsed by [Uri.parse].
   Fluri([String uri]) {
     this.uri = Uri.parse(uri != null ? uri : '');
   }
@@ -128,7 +127,7 @@ class Fluri extends FluriMixin {
 ///     class Request extends Object with FluriMixin {}
 ///
 ///     void main() {
-///       Request req = new Request()
+///       var req = Request()
 ///         ..host = 'example.com'
 ///         ..scheme = 'https'
 ///         ..path = 'path/to/resource'
@@ -226,6 +225,17 @@ class FluriMixin {
     }
 
     updateQuery({param: value});
+  }
+
+  /// Remove [param] from the URI query parameters.
+  ///
+  /// If there are multiple values with the key of [param], all will be removed.
+  /// If there is no query param with the key of [param], this does nothing.
+  void removeQueryParam(String param) {
+    _uri = _uri.replace(queryParameters: {
+      for (final key in queryParametersAll.keys)
+        if (key != param) key: List.of(queryParametersAll[key]),
+    });
   }
 
   /// Update the URI query parameters, merging the given map with the
