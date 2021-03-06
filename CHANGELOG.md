@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0
+
+- Stable null safe release.
+
 ## 1.3.0
 
 - Add a `removeQueryParam()` method.

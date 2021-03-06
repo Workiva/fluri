@@ -241,7 +241,7 @@ void main() {
   const url = 'http://example.com/path/to/resource?limit=10&format=list#test';
 
   group('Fluri', () {
-    Fluri fluri;
+    late Fluri fluri;
 
     setUp(() {
       fluri = Fluri(url);
@@ -294,8 +294,8 @@ void main() {
   });
 
   group('FluriMixin', () {
-    ExtendingClass extender;
-    MixingClass mixer;
+    late ExtendingClass extender;
+    late MixingClass mixer;
 
     setUp(() {
       extender = ExtendingClass(url);
