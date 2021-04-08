@@ -202,6 +202,26 @@ void commonFluriTests(FluriMixin getFluri()) {
           unorderedEquals(['binary', 'json', 'text']));
     });
 
+    test('should eliminate duplicate values when updating query parameters',
+        () {
+      expect(
+          (getFluri()
+                ..updateQuery({
+                  'dedupe': ['foo', 'bar']
+                })
+                ..updateQuery({
+                  'dedupe': ['foo', 'baz']
+                }, mergeValues: true))
+              .queryParametersAll,
+          containsPair('dedupe', ['foo', 'bar', 'baz']));
+      expect(
+          (getFluri()
+                ..updateQuery({'dedupe': 'foobaz'})
+                ..updateQuery({'dedupe': 'foobaz'}, mergeValues: true))
+              .queryParametersAll,
+          containsPair('dedupe', ['foobaz']));
+    });
+
     test(
         'should throw if invalid param value is given when setting a single query parameter',
         () {
@@ -241,7 +261,7 @@ void main() {
   const url = 'http://example.com/path/to/resource?limit=10&format=list#test';
 
   group('Fluri', () {
-    Fluri fluri;
+    late Fluri fluri;
 
     setUp(() {
       fluri = Fluri(url);
@@ -294,8 +314,8 @@ void main() {
   });
 
   group('FluriMixin', () {
-    ExtendingClass extender;
-    MixingClass mixer;
+    late ExtendingClass extender;
+    late MixingClass mixer;
 
     setUp(() {
       extender = ExtendingClass(url);
