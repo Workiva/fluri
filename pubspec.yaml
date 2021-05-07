@@ -7,3 +7,5 @@ environment:
 dev_dependencies:
   test: ^1.16.5
   workiva_analysis_options: ^1.1.0
+dependency_overrides:
+  test: 2.0.0
