@@ -1,0 +1,11 @@
+name: unit-tests
+description: Unit tests
+contact: "Frontend Frameworks Architecture / #support-frontend-architecture"
+
+image: drydock.workiva.net/workiva/dart2_base_image:1
+size: large
+timeout: 600
+
+scripts:
+  - dart pub get
+  - dart test

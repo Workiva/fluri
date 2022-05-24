@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.0.5
+
+- Add a `skynet.yaml` file.
+
+## 2.0.4
+
+- Update references to the archived slack room #support-client-plat
+
+## 2.0.3
+
+- Fix wildcard to include branch names with slashes
+
+## 2.0.2
+
+- Widen Dependency Ranges Blocking Dart 2.13
+
+## 2.0.1
+
+- Delete docs.yml file created for Dev Portal.
+
 ## 2.0.0
 
 - Stable null safe release.
