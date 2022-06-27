@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.6
+
+- CI tweaks.
+
 ## 2.0.5
 
 - Add a `skynet.yaml` file.
