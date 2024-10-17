@@ -16,7 +16,7 @@ jobs:
         sdk: [ 2.19.6, stable, beta ]
     uses: Workiva/gha-dart-oss/.github/workflows/checks.yaml@v0.1.7
     with:
-      format-check: ${{ matrix.sdk == '2.19.6' || 'true' && 'false' }}
+      format-check: ${{ matrix.sdk == '2.19.6' || true && false }}
 
   build:
     uses: Workiva/gha-dart-oss/.github/workflows/build.yaml@v0.1.7
