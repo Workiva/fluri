@@ -31,5 +31,6 @@ jobs:
         run: dart test
       - uses: anchore/sbom-action@v0
         with:
-          path: ./
+          artifact-name: sbom_${{ matrix.sdk }}.spdx
           format: cyclonedx-json
+          path: ./
