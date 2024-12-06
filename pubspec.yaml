@@ -3,7 +3,7 @@ version: 2.0.5
 description: Fluri is a fluent URI library built to make URI mutation easy.
 homepage: https://github.com/Workiva/fluri
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.19.0 <3.0.0'
 dev_dependencies:
   test: ^1.15.7
   workiva_analysis_options: ^1.1.0
