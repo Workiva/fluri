@@ -14,15 +14,15 @@ jobs:
     strategy:
       matrix:
         sdk: [ 2.19.6, stable, beta ]
-    uses: Workiva/gha-dart-oss/.github/workflows/checks.yaml@v0.1.7
+    uses: Workiva/gha-dart-oss/.github/workflows/checks.yaml@v3.0.5
     with:
       format-check: ${{ matrix.sdk == '2.19.6' || true && false }}
 
   build:
-    uses: Workiva/gha-dart-oss/.github/workflows/build.yaml@v0.1.7
+    uses: Workiva/gha-dart-oss/.github/workflows/build.yaml@v3.0.5
 
   unit-tests:
     strategy:
       matrix:
         sdk: [ 2.19.6, stable, beta ]
-    uses: Workiva/gha-dart-oss/.github/workflows/test-unit.yaml@v0.1.7
+    uses: Workiva/gha-dart-oss/.github/workflows/test-unit.yaml@v3.0.5
